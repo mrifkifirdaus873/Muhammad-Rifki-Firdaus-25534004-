@@ -1,0 +1,135 @@
+:root {
+  --kertas: #fbfaf7;
+  --teks: #1f2933;
+  --redup: #5b6670;
+  --aksen: #1f5f5b;
+  --aksen-muda: #e3efed;
+  --garis: #d8dcdf;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Source Sans 3", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--teks);
+  background: #e9ecee;
+  padding: 2rem 1rem;
+}
+
+.cv {
+  max-width: 850px;
+  margin: 0 auto;
+  background: var(--kertas);
+  border: 1px solid var(--garis);
+  padding: 2.5rem;
+}
+
+a { color: var(--aksen); }
+a:focus-visible { outline: 3px solid var(--aksen); outline-offset: 2px; }
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 3px solid var(--aksen);
+}
+
+h1 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 2.4rem;
+  line-height: 1.15;
+}
+
+.posisi { font-size: 1.15rem; color: var(--aksen); font-weight: 600; margin: .25rem 0 .75rem; }
+
+.kontak { list-style: none; color: var(--redup); font-size: .95rem; }
+
+.foto {
+  flex: 0 0 120px;
+  width: 120px;
+  height: 160px;
+  object-fit: cover;
+  background: var(--aksen-muda);
+  border: 1px solid var(--garis);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--redup);
+  font-size: .85rem;
+}
+
+/* Isi dua kolom */
+.isi {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 2rem;
+  margin-top: 1.75rem;
+}
+
+section + section { margin-top: 1.5rem; }
+
+h2 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.25rem;
+  color: var(--aksen);
+  padding-bottom: .25rem;
+  margin-bottom: .75rem;
+  border-bottom: 1px solid var(--garis);
+}
+
+h3 { font-size: 1.05rem; font-weight: 600; }
+
+article + article { margin-top: 1rem; }
+
+.waktu { color: var(--redup); font-size: .9rem; }
+
+.utama ul { margin: .4rem 0 0 1.2rem; }
+
+/* Samping */
+.samping {
+  background: var(--aksen-muda);
+  padding: 1.25rem;
+  align-self: start;
+}
+
+.samping ul { list-style: none; }
+.samping li + li { margin-top: .25rem; }
+
+.tag { display: flex; flex-wrap: wrap; gap: .4rem; }
+.tag li {
+  background: var(--kertas);
+  border: 1px solid var(--aksen);
+  border-radius: 4px;
+  padding: 0 .55rem;
+  font-size: .9rem;
+}
+.samping .tag li + li { margin-top: 0; }
+
+/* Footer */
+.footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--garis);
+  text-align: center;
+  color: var(--redup);
+  font-size: .9rem;
+}
+
+/* HP / layar kecil */
+@media (max-width: 640px) {
+  .cv { padding: 1.5rem; }
+  .header { flex-direction: column-reverse; }
+  .isi { grid-template-columns: 1fr; }
+  h1 { font-size: 1.9rem; }
+}
+
+/* Cetak ke PDF */
+@media print {
+  body { background: none; padding: 0; }
+  .cv { border: none; max-width: none; }
+}
